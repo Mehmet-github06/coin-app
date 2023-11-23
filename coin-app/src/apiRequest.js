@@ -1,4 +1,5 @@
 import { renderCoins } from "./renderData"
+import setMessage from "./setMessage"
 
 export const apiRequest = async (input) => {
 //   const API_KEY = "coinranking734f14b6d044ed7b30d43d513756abfe54db3b39dc88ddc2"
@@ -10,7 +11,8 @@ export const apiRequest = async (input) => {
     const res = await fetch(url, options)
     const json = await res.json()
     if (json.data.coins.length === 0) {
-      alert("Coin can not be found")
+    //   alert("Coin can not be found")
+      setMessage("Coin can not be found", "error")
     } else {
       //   console.log(json.data.coins[0])
       renderCoins(json.data.coins[0])
